@@ -1,3 +1,3 @@
 (defpackage normal-dev
   (:use :cl)
-  (:export ))
+  (:export #:nrand))

@@ -1,6 +1,11 @@
 ;;;; Generating normal deviates
 (in-package :normal-dev)
 
+(defun nrand (mean std)
+  "Draw a pseudorandom number from a normal distribution with given
+   mean and standard deviation."
+  (+ mean (* std (normal-dev))))
+
 (defun normal-dev ()
   "Generate a pseudorandom number from a normal (Gaussian) distribution
    of zero mean and unit standard deviation."

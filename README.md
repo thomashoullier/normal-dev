@@ -1,9 +1,29 @@
 # Normal deviates
 Generate pseudorandom numbers from a normal (Gaussian) distribution.
 
+**Warning**: I think the algorithm used is not suitable where high
+quality pseudorandom numbers are needed. I need to read about this.
+
 ## Usage
 
 ## Example
+Let's draw 1M pseudorandom numbers from the normal distribution.
+
+```common-lisp
+(defparameter *nvals* (make-array 1000000 :element-type 'double-float))
+(loop for i from 0 below (length *nvals*) do
+  (setf (aref *nvals* i) (normal-dev:nrand)))
+```
+
+Now, using ![histogram](https://github.com/thomashoullier/histogram), we
+compute and plot the histogram.
+
+```common-lisp
+(defparameter *hist* (histogram:make-hist (list -5d0 5d0) 100 :data *nvals*))
+(histogram:tofile *hist* <filename>)
+```
+
+![Histogram](doc/hist.svg)
 
 ## Implementation
 We use the algorithm of ratio of uniforms with bounds by Leva [1].

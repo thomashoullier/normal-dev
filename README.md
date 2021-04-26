@@ -13,7 +13,9 @@ pseudorandom numbers is dependent on your implementation's `random`.
 
 ## Caveats
 * I only tested the generator via visual assessment of the histogram.
-* I do not know the pros and cons of using the algorithm from Leva.
+* I do not know the pros and cons of using the algorithm from Leva. It
+  seems it is no longer state of the art, neither for quality nor speed.
+  I might update it to something more recent sometime.
 
 ## Dependencies
 * `normal-dev`: None.
